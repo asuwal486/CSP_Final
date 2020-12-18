@@ -1,0 +1,152 @@
+<html>
+  <head>
+    <title>Guess that Picture</title>
+      <script>
+        var point = 0;
+        var questionCount = 0;
+        var ans1 = "";
+        var ans2 = "";
+        var ans3 = "";
+        var ans4 = "";
+        var ans5 = "";
+
+          function checker()
+        {
+          if(questionCount == 0)
+          {
+            ans1 = document.getElementById('typed').value;
+            if(ans1.toLowerCase() == "arabic")
+            {
+              point = point + 1;
+            }
+
+            document.getElementById("picture").innerHTML = "<img src = 'japanese.jpg'>";
+             questionCount ++;
+          }
+         else if(questionCount == 1)
+        {
+          ans2 = document.getElementById('typed').value;
+          if(ans2.toLowerCase() == "japanese")
+          {
+            point = point + 1;
+          }
+
+          document.getElementById("picture").innerHTML = "<img src = 'nepali.jpg'>";
+            questionCount ++;
+        }
+        else if(questionCount == 2)
+          {
+            ans3 = document.getElementById('typed').value;
+            if(ans3.toLowerCase() == "nepali")
+            {
+              point = point + 1;
+            }
+
+            document.getElementById("picture").innerHTML = "<img src = 'thai.jpg'>";
+              questionCount ++;
+          }
+          else if(questionCount == 3)
+          {
+            ans4 = document.getElementById('typed').value;
+            if(ans4.toLowerCase() == "thai")
+            {
+              point = point + 1;
+            }
+            document.getElementById("picture").innerHTML = "<img src = 'korean.jpg'>";
+            questionCount++;
+          }
+        else if(questionCount == 4)
+          {
+            ans5 = document.getElementById('typed').value;
+            if(ans5.toLowerCase() == "korean")
+            {
+              point = point + 1;
+            }
+          end();
+
+          }
+        }
+
+        function end()
+        {
+              var table = "<b>Results: " + "you got " + point + "/5" + "</b><br><br>";
+              table = table + "The first answer was <b>Arabic</b> you answered: " + ans1 + "<br><br>";
+              table = table + "The first answer was <b>Japanese</b> you answered: " + ans2 + "<br><br>";
+              table = table + "The first answer was <b>Nepali</b> you answered: " + ans3 + "<br><br>";
+              table = table + "The first answer was <b>Thai</b> you answered: " + ans4 + "<br><br>";
+              table = table + "The first answer was <b>Korean</b> you answered: " + ans5 + "<br>";
+              document.getElementById("picture").innerHTML = table;
+              document.getElementById("restart").style.visibility = "visible";
+              document.getElementById("typed").style.display = "none";
+              document.getElementById("next").style.display = "none";
+        }
+
+        function restart()
+        {
+          location.reload();
+        }
+
+      </script>
+
+    <style>
+      body{
+        background-color: #d9b38c;
+        background-image: url("b.jpg");
+        background-repeat: repeat-x;
+        background-position: left bottom;
+        text-align: center;
+      }
+      #typed{
+        background-color: #cc9966;
+        border: 2px solid #4d3319;
+        padding: 5px 10px;
+        box-shadow: 0 6px 12px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      }
+      #h{
+        font-size: 40px;
+        text-align: center;
+        text-shadow: 6px 5px 1px #cc9966;
+      }
+
+      #next{
+        border-radius: 5px;
+        background-color: #d9b38c;
+        border: 2px solid #734d26;
+        padding: 5px 10px;
+        font-family: sans-serif;
+      }
+      #next:hover{
+        background-color: #cc9966;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      }
+
+      #restart{
+        border-radius: 5px;
+        background-color: #d9b38c;
+        border: 2px solid #734d26;
+        padding: 5px 10px;
+        font-family: sans-serif;
+      }
+      #restart:hover{
+        background-color: #cc9966;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      }
+
+      #picture{
+        font-family: monospace;
+        font-size: 20px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h1 id = "h">~ Guess The Language ~</h1>
+      <span id = "p"></span>
+        <span id = "picture"><img src = "arabic.jpg"></span><br><br>
+          <input type = "text" id = "typed">
+            <input type = "button" value = "NEXT" onclick = "checker()" id = "next">
+            <input type="button" value = "Play again" onclick="restart()" id="restart" style="visibility:hidden">
+  </body>
+</html>
